@@ -2,7 +2,7 @@ from yt_dlp import YoutubeDL
 import csv
 
 with YoutubeDL() as ydl:
-  playlist = ydl.extract_info("https://www.youtube.com/playlist?list=PLUW3LUwQvegxit4XMxUNW3qrRFmgP_aaT", download=False)
+  playlist = ydl.extract_info("https://www.youtube.com/playlist?list=YOURPLAYLISTURL", download=False)
   for video in playlist['entries']:
       video_url = video['formats'][0]['url']
       # Create a new file and write the headers

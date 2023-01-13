@@ -4,19 +4,19 @@ import csv
 import requests
 import re
 import os
-# if len(sys.argv) != 2:
-#     print("Error: Incorrect number of arguments")
-#     sys.exit(1)
 
-# yt_link = sys.argv[1]
+if len(sys.argv) != 2:
+    print("Error: Incorrect number of arguments")
+    sys.exit(1)
 
+yt_link = sys.argv[1]
 
 pattern = re.compile(r'\b(SPONSOR|sponsor|Sponsor)\b', re.IGNORECASE)
 time_pattern = re.compile(r'(\d+:){1,2}\d+')
 directory = './.tmp/'
-user_id = "N5BrKnIpxltUjsBfcOXoqeCrP3sUXNuapCZf" # Your sponsorblock UserID
+user_id = "your_sponsorblock_userid" # Your sponsorblock UserID
 
-yt_link = "https://youtu.be/EgSIId57Vt0"
+
 with YoutubeDL() as ydl: 
   info_dict = ydl.extract_info(yt_link, download=False)
   video_id = info_dict.get("id", None)
@@ -70,7 +70,8 @@ else:
 
                     # Check the response
 
-                    print("The submission finished with: ", response.text + "\n")                    
+                    print("The submission finished with: ", response.text + "\n")
+                  
 
 
         
