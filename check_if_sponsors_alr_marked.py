@@ -15,8 +15,10 @@ with open('videos.csv', 'r') as csvfile:
         # Iterate through the rows of the CSV file
         for row in reader:
             video_id = row['id']
+
             response = requests.get(f"https://api.sponsor.ajay.app/api/skipSegments/?videoID={video_id}")
             if response.status_code == 200:
+                print(response.text)
                 continue
             else:
                 writer.writerow({'id': row['id'], 'title': row['title']})
