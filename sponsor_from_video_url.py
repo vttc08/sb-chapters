@@ -4,6 +4,9 @@ import csv
 import requests
 import re
 import os
+import dotenv
+
+dotenv.load_dotenv()
 
 if len(sys.argv) != 2:
     print("Error: Incorrect number of arguments")
@@ -14,7 +17,7 @@ yt_link = sys.argv[1]
 pattern = re.compile(r'\b(SPONSOR|sponsor|Sponsor)\b', re.IGNORECASE)
 time_pattern = re.compile(r'(\d+:){1,2}\d+')
 directory = './.tmp/'
-user_id = "your_sponsorblock_userid" # Your sponsorblock UserID
+user_id = os.getenv("sb_userid")
 
 
 with YoutubeDL() as ydl: 

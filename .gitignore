@@ -1,3 +1,7 @@
 *.csv
 *.code-workspace
 __pycache__
+*.env
+video_desc
+.tmp
+pip 

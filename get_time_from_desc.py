@@ -13,6 +13,7 @@ with open('submit.csv','w',encoding='utf-8',newline='') as csvfile:
     fieldnames = ['video_id', 'start', 'end']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
+    
 # Iterate through the files in the directory
     for filename in os.listdir(directory):
         with open(os.path.join(directory, filename), 'r') as file:

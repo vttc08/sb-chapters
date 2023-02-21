@@ -1,5 +1,9 @@
 import requests
 import csv
+import os
+import dotenv
+
+dotenv.load_dotenv()
 
 with open('submit.csv', 'r', encoding='utf-8') as csvfile:
     reader = csv.DictReader(csvfile)
@@ -10,7 +14,7 @@ with open('submit.csv', 'r', encoding='utf-8') as csvfile:
         print (video_id,start_time,end_time)
 
         # The video id and segment start and end time
-        user_id = "N5BrKnIpxltUjsBfcOXoqeCrP3sUXNuapCZf"
+        user_id = os.getenv("sb_userid")
         # Prepare the data for the request
         data = {"userID": user_id, "videoID": video_id, "segments": [{"segment": [start_time,end_time],"category": "sponsor"}]}
 
